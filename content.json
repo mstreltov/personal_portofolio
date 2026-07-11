@@ -16,13 +16,13 @@
     },
     {
       "role": "IT System Administrator",
-      "badge": "Hybrid",
-      "company": "Ingleby Farms & Forests | Timișoara — 13/11/2024 – 27/04/2025",
+      "badge": "",
+      "company": "Ingleby Farms & Forests | Hybrid,Timișoara Metropolitan Area — 13/11/2024 – 27/04/2025",
       "description": "Administered Windows Server 2016/2019/2022 in mixed virtual/physical Hyper-V environments. PowerShell scripting for server management. Wrote SQL queries in Lansweeper for infrastructure BI reports. Managed Bitdefender GravityZone protecting 200+ endpoints."
     },
     {
       "role": "System Administrator",
-      "badge": "Remote",
+      "badge": "",
       "company": "Atos GDC SRL | Remote — 21/09/2021 – 12/11/2024",
       "description": "Administered Windows Server 2000–2019 and VMware vSphere 6.x/7 / Hyper-V, ESX host management. SPOC for patch management with BMC TrueSight. Provided 24/7 on-call emergency support and managed incidents/changes in ServiceNow."
     }
