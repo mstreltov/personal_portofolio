@@ -27,7 +27,6 @@ and vanilla JS — to keep it fast, dependency-free, and easy to run anywhere.
 - Containerized with Docker/Docker Compose for consistent local hosting
 - Deployable as a static site (GitHub Pages, Netlify, Vercel) or via any Docker host
 
-**Structure:**
 ## Running
 
 Site available at `https://mstreltov.github.io/personal_portofolio/`.
