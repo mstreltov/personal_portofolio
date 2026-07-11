@@ -28,26 +28,14 @@ and vanilla JS — to keep it fast, dependency-free, and easy to run anywhere.
 - Deployable as a static site (GitHub Pages, Netlify, Vercel) or via any Docker host
 
 **Structure:**
-## Running locally
+## Running
 
-```bash
-docker compose up -d --build
-```
-Site available at `http://localhost:8080`.
+Site available at `https://mstreltov.github.io/personal_portofolio/`.
 
-Or without Docker, any static server works:
-```bash
-python3 -m http.server 8000
-```
 
 ## Projects featured on the site
 
-- **RNVI** — Full-stack real estate transaction registry (FastAPI, React, PostgreSQL)
-  built with EU regulatory compliance in mind (GDPR, AMLD6, INSPIRE).
-- **OSINT Bot Detector** — Modular Python CLI tool for detecting bot and coordinated
-  propaganda accounts using behavioral and network analysis (Twitter API v2).
-- **AI Log Diagnostic** — Automated pipeline combining Python log monitoring with
-  LLM-driven diagnostic summaries.
+- **Stremio Docker Server** — Containerized Stremio streaming server deployed via Docker, optimized for local network media playback and central add-on management.
 - **Home Server (Docker)** — Containerized media and monitoring stack on Ubuntu 24.04 LTS.
 
 ## Contact
