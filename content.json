@@ -31,22 +31,26 @@
     { "icon": "fab fa-windows", "name": "Windows Server", "status": "ACTIVE", "color": "green" },
     { "icon": "fas fa-server", "name": "VMware vSphere", "status": "ACTIVE", "color": "green" },
     { "icon": "fas fa-network-wired", "name": "ESXi / Hyper-V", "status": "ACTIVE", "color": "green" },
+    { "icon": "fab fa-linux", "name": "Linux (Ubuntu)", "status": "ACTIVE", "color": "green" },
+    { "icon": "fas fa-chart-line", "name": "Grafana & SignalFX", "status": "ACTIVE", "color": "green" },
+    { "icon": "fas fa-ticket-alt", "name": "ServiceNow (ITSM)", "status": "ACTIVE", "color": "green" },
     { "icon": "fab fa-microsoft", "name": "Azure Fundamentals", "status": "LEARNED", "color": "cyan" }
   ],
   "skillsScripting": [
     { "icon": "fas fa-terminal", "name": "PowerShell", "status": "ADVANCED", "color": "green" },
     { "icon": "fab fa-python", "name": "Python", "status": "BASIC", "color": "yellow" },
     { "icon": "fab fa-docker", "name": "Docker", "status": "BASIC", "color": "yellow" },
+    { "icon": "fas fa-database", "name": "SQL (Queries)", "status": "BASIC", "color": "yellow" },
     { "icon": "fas fa-robot", "name": "Claude / Gemini / Rovo", "status": "DAILY DRIVER", "color": "cyan" }
   ],
   "projects": [
     {
-  "name": "stremio-docker-server",
-  "status": "Production Ready",
-  "statusStyle": "solid",
-  "tags": "[Docker] [Stremio] [Media-Streaming] [Self-Hosted]",
-  "description": "Containerized Stremio streaming server deployed via Docker, optimized for local network media playback and central add-on management.",
-  "source": "#"
+      "name": "stremio-docker-server",
+      "status": "Production Ready",
+      "statusStyle": "solid",
+      "tags": "[Docker] [Stremio] [Media-Streaming] [Self-Hosted]",
+      "description": "Containerized Stremio streaming server deployed via Docker, optimized for local network media playback and central add-on management.",
+      "source": "#"
     },
     {
       "name": "home-server-docker",
@@ -64,12 +68,22 @@
   },
   "cv": {
     "photo": "profile.jpg",
-    "jobTitle": "SYSTEM ADMINISTRATOR",
+    "jobTitle": "SYSTEM ADMINISTRATOR & NOC ENGINEER",
     "education": [
       { "dates": "02/10/2017 – 01/07/2021", "degree": "Physical therapy and special motricity (Postgraduate degree)", "school": "Physical Education and Sport College, West University of Timisoara" },
       { "dates": "2013 – 2017", "degree": "Bacalaureat", "school": "Theoretical High School Jean Louis Calderon" }
     ],
-    "knowledge": ["Windows Servers", "Powershell", "VMware vSphere", "ESXi", "Reporting/Documentating", "Troubleshooting"],
+    "knowledge": [
+      "Windows Servers",
+      "Powershell",
+      "VMware vSphere & ESXi",
+      "Linux (Ubuntu) Administration",
+      "Enterprise Monitoring (Grafana, SignalFX, LogicMonitor, BMC Helix)",
+      "ITSM & Incident Management (ServiceNow)",
+      "Docker Containerization",
+      "SQL (Lansweeper BI Reporting)",
+      "Troubleshooting & Technical Documentation"
+    ],
     "languages": [
       { "name": "English", "level": "Independent User" },
       { "name": "French", "level": "Basic User" }
