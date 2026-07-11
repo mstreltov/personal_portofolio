@@ -41,22 +41,6 @@
   ],
   "projects": [
     {
-      "name": "RNVI - Real Estate Registry",
-      "status": "In Progress",
-      "statusStyle": "outline",
-      "tags": "[FastAPI] [React] [PostgreSQL]",
-      "description": "Full-stack real estate transaction registry with zone-based property valuation and municipality tax calibration, built for EU regulatory compliance.",
-      "source": "#"
-    },
-    {
-      "name": "osint-bot-detector",
-      "status": "In Progress",
-      "statusStyle": "outline",
-      "tags": "[Python] [Twitter API v2] [NLP]",
-      "description": "Modular CLI tool for detecting bot and coordinated propaganda troll accounts using behavioral, provenance and network analysis.",
-      "source": "#"
-    },
-    {
       "name": "ai-log-diagnostic",
       "status": "In Progress",
       "statusStyle": "outline",
@@ -77,5 +61,37 @@
     "email": "marcus.streltov14@gmail.com",
     "phone": "+40 733642625",
     "location": "Timisoara, Romania"
+  },
+  "cv": {
+    "photo": "profile.jpg",
+    "jobTitle": "SYSTEM ADMINISTRATOR",
+    "education": [
+      { "dates": "02/10/2017 – 01/07/2021", "degree": "Physical therapy and special motricity (Postgraduate degree)", "school": "Physical Education and Sport College, West University of Timisoara" },
+      { "dates": "2013 – 2017", "degree": "Bacalaureat", "school": "Theoretical High School Jean Louis Calderon" }
+    ],
+    "knowledge": ["Windows Servers", "Powershell", "VMware vSphere", "ESXi", "Reporting/Documentating", "Troubleshooting"],
+    "languages": [
+      { "name": "English", "level": "Independent User" },
+      { "name": "French", "level": "Basic User" }
+    ],
+    "additionalSkills": [
+      "AI Assistants & Tools: Experienced user of enterprise and consumer LLM solutions (Atlassian Rovo, Claude, Gemini).",
+      "Prompt Engineering & Scripting: Strong ability to leverage LLMs (Claude/Gemini) as co-pilots for generating, refactoring, and debugging infrastructure automation scripts (PowerShell, Python).",
+      "AI Mindset (Operator/Enabler): Comfortable acting as an early adopter of AI tooling, understanding model behaviors, context constraints, and practical applications in daily IT tasks.",
+      "Linux System Administrator course (by SKILLAB ACADEMY CO SRL)",
+      "Basic Docker knowledge",
+      "Azure Fundamentals knowledge",
+      "Basic Python knowledge",
+      "Microsoft 365 fundamentals",
+      "Microsoft 365 Copilot for administrators"
+    ],
+    "communicationSkills": [
+      "Excellent communication skills gained through international experiences, academic activity, sales/cashier assistant, but also in extracurricular and volunteering activities.",
+      "Combine patience, determination, and persistence to troubleshoot client issues.",
+      "Dynamic, results-oriented problem solver.",
+      "Understand and solve technical problems.",
+      "Enjoy working as a team member as well as independently."
+    ],
+    "driverLicense": "Automobile category B"
   }
 }

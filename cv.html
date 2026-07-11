@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Constantin-Marcus Strelțov</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #e5e5e5;
+        margin: 0;
+        padding: 24px;
+        color: #222;
+    }
+    #toolbar {
+        max-width: 900px;
+        margin: 0 auto 16px auto;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+    #toolbar a, #toolbar button {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        color: #fff;
+        background: #06b6d4;
+    }
+    #toolbar a.secondary { background: #27272a; }
+
+    #cv-page {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 32% 68%;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+    .sidebar {
+        background: #2b3648;
+        color: #f4f4f5;
+        padding: 32px 24px;
+    }
+    .sidebar img.photo {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 24px auto;
+        border: 3px solid #fff;
+    }
+    .sidebar h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #4b5567;
+        padding-bottom: 6px;
+        margin: 24px 0 12px 0;
+    }
+    .sidebar h3:first-of-type { margin-top: 0; }
+    .contact-item { font-size: 12.5px; margin-bottom: 12px; line-height: 1.4; }
+    .contact-item strong { display: block; font-size: 13px; margin-bottom: 2px; }
+    .contact-item a { color: #7dd3fc; text-decoration: none; }
+    .edu-item { font-size: 12px; margin-bottom: 14px; line-height: 1.5; }
+    .edu-item .dates { font-weight: 600; color: #cbd5e1; display: block; margin-bottom: 2px; }
+    .edu-item .degree { font-weight: 700; display: block; }
+    .edu-item .school { color: #cbd5e1; }
+    .knowledge-list, .lang-list { list-style: none; padding: 0; margin: 0; font-size: 12.5px; }
+    .knowledge-list li { margin-bottom: 8px; }
+    .lang-list li { font-weight: 700; margin-bottom: 4px; font-size: 12.5px; }
+
+    .main { padding: 32px 36px; }
+    .main h1 { font-size: 26px; margin: 0 0 2px 0; color: #1a1a1a; }
+    .main .job-title { font-size: 14px; letter-spacing: 1.5px; color: #555; margin-bottom: 14px; font-weight: 600; }
+    .main .bio { font-size: 12.5px; line-height: 1.6; color: #333; margin-bottom: 20px; }
+    .main h2 {
+        font-size: 17px;
+        color: #1a1a1a;
+        border-bottom: 2px solid #2b3648;
+        padding-bottom: 4px;
+        margin: 22px 0 12px 0;
+    }
+    .exp-entry { margin-bottom: 16px; }
+    .exp-entry .dates { font-size: 11.5px; font-weight: 700; color: #2b3648; }
+    .exp-entry .company { font-size: 12px; font-style: italic; margin-bottom: 4px; }
+    .exp-entry .role { font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+    .exp-entry ul { margin: 4px 0 0 0; padding-left: 16px; }
+    .exp-entry li { font-size: 11.5px; line-height: 1.5; margin-bottom: 3px; color: #333; }
+
+    .skills-list { margin: 0; padding-left: 16px; }
+    .skills-list li { font-size: 11.5px; line-height: 1.5; margin-bottom: 4px; color: #333; }
+
+    @media print {
+        body { background: #fff; padding: 0; }
+        #toolbar { display: none; }
+        #cv-page { box-shadow: none; max-width: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+    <a href="index.html" class="secondary">← Back to site</a>
+    <button onclick="downloadPdf()">Download PDF</button>
+</div>
+
+<div id="cv-page">
+    <div class="sidebar">
+        <img class="photo" id="cv-photo" src="profile.jpg" alt="Profile photo">
+
+        <h3>Contact</h3>
+        <div class="contact-item"><strong>Phone</strong><span id="cv-phone"></span></div>
+        <div class="contact-item"><strong>Email</strong><span id="cv-email"></span></div>
+        <div class="contact-item"><strong>Address</strong><span id="cv-location"></span></div>
+        <div class="contact-item"><strong>LinkedIn</strong><a id="cv-linkedin" href="#" target="_blank">Profile</a></div>
+
+        <h3>Education</h3>
+        <div id="cv-education"></div>
+
+        <h3>Knowledge</h3>
+        <ul class="knowledge-list" id="cv-knowledge"></ul>
+
+        <h3>Language</h3>
+        <ul class="lang-list" id="cv-languages"></ul>
+
+        <h3>Driver license</h3>
+        <div class="contact-item" id="cv-license"></div>
+    </div>
+
+    <div class="main">
+        <h1 id="cv-name"></h1>
+        <div class="job-title" id="cv-jobtitle"></div>
+        <p class="bio" id="cv-bio"></p>
+
+        <h2>Experience</h2>
+        <div id="cv-experience"></div>
+
+        <h2>Additional Skills</h2>
+        <ul class="skills-list" id="cv-additional"></ul>
+
+        <h2>Communication &amp; Interpersonal Skills</h2>
+        <ul class="skills-list" id="cv-communication"></ul>
+    </div>
+</div>
+
+<script>
+    fetch('content.json?v=' + Date.now())
+        .then(r => r.json())
+        .then(data => {
+            const p = data.profile, c = data.contact, cv = data.cv;
+
+            document.getElementById('cv-photo').src = cv.photo;
+            document.getElementById('cv-name').textContent = p.name;
+            document.getElementById('cv-jobtitle').textContent = cv.jobTitle;
+            document.getElementById('cv-bio').textContent = p.bio;
+
+            document.getElementById('cv-phone').textContent = c.phone;
+            document.getElementById('cv-email').textContent = c.email;
+            document.getElementById('cv-location').textContent = c.location;
+            document.getElementById('cv-linkedin').href = p.linkedin;
+
+            document.getElementById('cv-education').innerHTML = cv.education.map(e => `
+                <div class="edu-item">
+                    <span class="dates">${e.dates}</span>
+                    <span class="degree">${e.degree}</span>
+                    <span class="school">${e.school}</span>
+                </div>`).join('');
+
+            document.getElementById('cv-knowledge').innerHTML = cv.knowledge.map(k => `<li>${k}</li>`).join('');
+            document.getElementById('cv-languages').innerHTML = cv.languages.map(l => `<li>${l.name} - ${l.level}</li>`).join('');
+            document.getElementById('cv-license').textContent = cv.driverLicense;
+
+            document.getElementById('cv-experience').innerHTML = data.experience.map(e => `
+                <div class="exp-entry">
+                    <div class="dates">${e.company}</div>
+                    <div class="role">${e.role}</div>
+                    <ul>${e.description.split('. ').filter(s => s.trim()).map(s => `<li>${s.trim().replace(/\.$/, '')}.</li>`).join('')}</ul>
+                </div>`).join('');
+
+            document.getElementById('cv-additional').innerHTML = cv.additionalSkills.map(s => `<li>${s}</li>`).join('');
+            document.getElementById('cv-communication').innerHTML = cv.communicationSkills.map(s => `<li>${s}</li>`).join('');
+        });
+
+    function downloadPdf() {
+        const el = document.getElementById('cv-page');
+        html2pdf().set({
+            margin: 0,
+            filename: 'CV_Streltov_Constantin_Marcus.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(el).save();
+    }
+</script>
+</body>
+</html>
