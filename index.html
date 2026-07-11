@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constantin-Marcus Strelțov | Portfolio</title>
+    <meta name="description" content="Constantin-Marcus Strelțov — NOC Engineer & Infrastructure Automation. Portfolio, proiecte și contact.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        deepblack: '#000000',
+                        cardbg: '#09090b',
+                        cyanmain: '#06b6d4',
+                        cyanglow: '#00f2fe',
+                        muted: '#27272a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #000000; color: #e4e4e7; }
+        .bento-card {
+            background-color: #09090b;
+            border: 1px solid #27272a;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+        }
+        .terminal-scroll::-webkit-scrollbar { width: 6px; }
+        .terminal-scroll::-webkit-scrollbar-track { background: #000000; }
+        .terminal-scroll::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+        .status-log .status-text { display: none; }
+        .status-log:hover .status-text { display: inline-block; }
+        .status-log:hover .skill-name { color: #06b6d4; }
+        @keyframes glitch {
+            0% { background-color: #000000; }
+            50% { background-color: #450a0a; color: #f87171; }
+            100% { background-color: #000000; }
+        }
+        .hacked { animation: glitch 0.5s ease-in-out 3; }
+        .toast {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: #09090b; border: 1px solid #06b6d4; color: #06b6d4;
+            padding: 10px 20px; border-radius: 8px; font-family: 'JetBrains Mono', monospace;
+            font-size: 13px; opacity: 0; transition: all 0.3s ease; pointer-events: none; z-index: 50;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .skeleton { opacity: 0.4; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 font-sans selection:bg-cyanmain selection:text-black">
+
+    <main id="app" class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 skeleton">
+
+        <!-- Profile Card -->
+        <div class="bento-card p-6 md:col-span-2 lg:col-span-2 relative flex flex-col justify-between">
+            <div class="absolute top-6 right-6 flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span id="p-status" class="text-xs font-mono text-green-500">Available</span>
+            </div>
+            <div>
+                <p id="p-greeting" class="font-mono text-cyanmain text-sm mb-2">Hello World_</p>
+                <h1 id="p-name" class="text-3xl md:text-4xl font-semibold mb-2 whitespace-pre-line"></h1>
+                <h2 id="p-title" class="text-lg text-zinc-400 font-medium mb-4"></h2>
+                <p id="p-bio" class="text-zinc-500 text-sm max-w-md leading-relaxed"></p>
+            </div>
+            <div class="mt-6 flex gap-3">
+                <a id="p-linkedin" href="#" target="_blank" class="px-4 py-2 rounded-md bg-zinc-800 hover:bg-cyanmain hover:text-black transition-colors font-mono text-sm">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+                <a href="#lab" class="px-4 py-2 rounded-md border border-zinc-800 hover:border-cyanmain transition-colors font-mono text-sm">
+                    View Lab
+                </a>
+            </div>
+        </div>
+
+        <!-- Terminal Card -->
+        <div class="bento-card p-4 md:col-span-1 lg:col-span-2 bg-black font-mono flex flex-col h-72">
+            <div class="flex items-center gap-2 mb-4 border-b border-zinc-800 pb-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-zinc-500 ml-2">marcus@sys-admin:~</span>
+            </div>
+            <div id="terminal-output" class="flex-1 overflow-y-auto terminal-scroll text-sm text-zinc-300 space-y-1 pb-2">
+                <p class="text-cyanmain">System initialized. Type 'help' to see available commands.</p>
+            </div>
+            <div class="flex items-center text-sm mt-2">
+                <span class="text-green-500 mr-2">➜</span>
+                <span class="text-cyanmain mr-2">~</span>
+                <input type="text" id="terminal-input" aria-label="Terminal command input" class="bg-transparent border-none outline-none flex-1 text-zinc-100" autocomplete="off" autofocus>
+            </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="bento-card p-6 md:col-span-2 lg:col-span-2">
+            <h3 class="text-lg font-semibold mb-4 flex items-center"><i class="fas fa-history mr-2 text-cyanmain"></i> Infrastructure Timeline</h3>
+            <div id="experience-list" class="space-y-4 border-l border-zinc-800 ml-2 pl-4"></div>
+        </div>
+
+        <!-- Cloud & Hypervisors -->
+        <div class="bento-card p-6 flex flex-col justify-center">
+            <h3 class="text-sm font-mono text-zinc-500 mb-4 uppercase tracking-wider">Cloud & Hypervisors</h3>
+            <div id="skills-cloud" class="space-y-3 font-mono text-sm"></div>
+        </div>
+
+        <!-- Scripting & Ops -->
+        <div class="bento-card p-6 flex flex-col justify-center">
+            <h3 class="text-sm font-mono text-zinc-500 mb-4 uppercase tracking-wider">Scripting & Ops</h3>
+            <div id="skills-scripting" class="space-y-3 font-mono text-sm"></div>
+        </div>
+
+        <!-- The Lab -->
+        <div id="lab" class="bento-card p-6 md:col-span-2 lg:col-span-3">
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h3 class="text-xl font-semibold"><i class="fas fa-flask mr-2 text-cyanmain"></i> The Lab</h3>
+                    <p class="text-sm text-zinc-500 mt-1 font-mono">./projects/current</p>
+                </div>
+            </div>
+            <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <!-- Contact -->
+        <div class="bento-card p-6 md:col-span-1 lg:col-span-1 flex flex-col justify-center">
+            <h3 class="text-lg font-semibold mb-4 text-white">/connect</h3>
+            <p class="text-xs text-zinc-500 mb-6">Drop a line if you want to discuss system architecture, automation, or AI workflows.</p>
+            <div class="space-y-4 text-sm font-mono">
+                <div class="flex items-center justify-between group">
+                    <div class="flex items-center text-zinc-300">
+                        <i class="fas fa-envelope w-6 text-zinc-500"></i>
+                        <span id="c-email" class="truncate w-32 md:w-auto"></span>
+                    </div>
+                    <button id="copy-email" class="text-zinc-600 hover:text-cyanmain transition-colors" title="Copy Email" aria-label="Copy email">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+                <div class="flex items-center justify-between group">
+                    <div class="flex items-center text-zinc-300">
+                        <i class="fas fa-phone w-6 text-zinc-500"></i>
+                        <span id="c-phone"></span>
+                    </div>
+                    <button id="copy-phone" class="text-zinc-600 hover:text-cyanmain transition-colors" title="Copy Phone" aria-label="Copy phone number">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+                <div class="flex items-center text-zinc-300">
+                    <i class="fas fa-map-marker-alt w-6 text-zinc-500"></i>
+                    <span id="c-location"></span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        let CONTENT = null;
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 1800);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => showToast(`Copiat: ${text}`));
+        }
+
+        function colorClass(color) {
+            return { green: 'text-green-500', cyan: 'text-cyanmain', yellow: 'text-yellow-500' }[color] || 'text-zinc-400';
+        }
+
+        function renderSkillGroup(containerId, items) {
+            const el = document.getElementById(containerId);
+            el.innerHTML = items.map(s => `
+                <div class="status-log cursor-default flex justify-between items-center group">
+                    <span class="skill-name text-zinc-300 transition-colors"><i class="${s.icon} w-5"></i> ${s.name}</span>
+                    <span class="status-text text-xs ${colorClass(s.color)}">[ ${s.status} ]</span>
+                </div>`).join('');
+        }
+
+        function renderContent(data) {
+            CONTENT = data;
+            document.getElementById('p-status').textContent = data.profile.status;
+            document.getElementById('p-greeting').textContent = data.profile.greeting;
+            document.getElementById('p-name').textContent = data.profile.name;
+            document.getElementById('p-title').textContent = data.profile.title;
+            document.getElementById('p-bio').textContent = data.profile.bio;
+            document.getElementById('p-linkedin').href = data.profile.linkedin;
+
+            document.getElementById('experience-list').innerHTML = data.experience.map(e => `
+                <div class="relative">
+                    <div class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full ${e.badge ? 'bg-cyanmain shadow-[0_0_8px_#06b6d4]' : 'bg-zinc-700'}"></div>
+                    <h4 class="font-medium text-zinc-200">${e.role} ${e.badge ? `<span class="text-xs bg-cyanmain/10 text-cyanmain px-2 py-0.5 rounded ml-2">${e.badge}</span>` : ''}</h4>
+                    <p class="text-sm text-zinc-500 font-mono">${e.company}</p>
+                    <p class="text-xs text-zinc-400 mt-1">${e.description}</p>
+                </div>`).join('');
+
+            renderSkillGroup('skills-cloud', data.skillsCloud);
+            renderSkillGroup('skills-scripting', data.skillsScripting);
+
+            document.getElementById('projects-list').innerHTML = data.projects.map(p => `
+                <div class="border border-zinc-800 rounded-lg p-4 bg-black font-mono text-sm hover:border-cyanmain/50 transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="${p.statusStyle === 'solid' ? 'text-zinc-200' : 'text-cyanmain'}">${p.name}</span>
+                        <span class="${p.statusStyle === 'solid' ? 'bg-green-900/30 text-green-500' : 'border border-cyanmain text-cyanmain'} px-2 py-0.5 rounded text-xs">[${p.status}]</span>
+                    </div>
+                    <p class="text-zinc-500 text-xs mb-3">TAGS: ${p.tags}</p>
+                    <p class="text-zinc-400 mb-4 line-clamp-2">${p.description}</p>
+                    <div class="flex gap-4 text-xs">
+                        <a href="${p.source}" class="text-zinc-300 hover:text-white"><i class="fab fa-github mr-1"></i>Source</a>
+                    </div>
+                </div>`).join('');
+
+            document.getElementById('c-email').textContent = data.contact.email;
+            document.getElementById('c-phone').textContent = data.contact.phone;
+            document.getElementById('c-location').textContent = data.contact.location;
+
+            document.getElementById('copy-email').onclick = () => copyToClipboard(data.contact.email);
+            document.getElementById('copy-phone').onclick = () => copyToClipboard(data.contact.phone);
+
+            document.getElementById('app').classList.remove('skeleton');
+        }
+
+        fetch('content.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(renderContent)
+            .catch(() => showToast('Eroare la încărcarea conținutului.'));
+
+        // Terminal
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalOutput = document.getElementById('terminal-output');
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim().toLowerCase();
+                if (command) processCommand(command);
+                this.value = '';
+            }
+        });
+
+        function processCommand(cmd) {
+            appendOutput(`➜ ~ ${cmd}`, 'text-zinc-400');
+            switch (cmd) {
+                case 'help':
+                    appendOutput('Available commands: clear, bio, skills, experience, projects, contact, sudo rm -rf /', 'text-zinc-300');
+                    break;
+                case 'bio':
+                    appendOutput(CONTENT ? CONTENT.profile.bio : 'Loading...', 'text-zinc-300');
+                    break;
+                case 'skills':
+                    appendOutput('Loading modules...', 'text-zinc-500');
+                    if (CONTENT) {
+                        [...CONTENT.skillsCloud, ...CONTENT.skillsScripting].forEach((s, i) => {
+                            setTimeout(() => appendOutput(`> ${s.name} [${s.status}]`, 'text-green-500'), 300 * (i + 1));
+                        });
+                    }
+                    break;
+                case 'experience':
+                    if (CONTENT) CONTENT.experience.forEach(e => appendOutput(`${e.role} @ ${e.company}`, 'text-zinc-300'));
+                    break;
+                case 'projects':
+                    if (CONTENT) CONTENT.projects.forEach(p => appendOutput(`${p.name} — ${p.status}`, 'text-cyanmain'));
+                    break;
+                case 'contact':
+                    appendOutput(CONTENT ? `Email: ${CONTENT.contact.email} | Phone: ${CONTENT.contact.phone}` : 'Loading...', 'text-cyanmain');
+                    break;
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
+                case 'sudo rm -rf /':
+                    document.body.classList.add('hacked');
+                    setTimeout(() => {
+                        terminalOutput.innerHTML = '';
+                        appendOutput('Access denied. Nice try, hacker.', 'text-red-500 font-bold');
+                        document.body.classList.remove('hacked');
+                    }, 1500);
+                    break;
+                default:
+                    appendOutput(`Command not found: ${cmd}. Type 'help' for available commands.`, 'text-red-400');
+            }
+        }
+
+        function appendOutput(text, classes = '') {
+            const p = document.createElement('p');
+            p.className = classes;
+            p.textContent = text;
+            terminalOutput.appendChild(p);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        document.getElementById('terminal-output').parentElement.addEventListener('click', () => terminalInput.focus());
+    </script>
+</body>
+</html>

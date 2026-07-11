@@ -1,0 +1,81 @@
+{
+  "profile": {
+    "status": "Available",
+    "greeting": "Hello World_",
+    "name": "Constantin-Marcus Strelțov",
+    "title": "System Administrator & NOC Engineer",
+    "bio": "Versatile IT Engineer with a proven track record spanning System Administration and real-time NOC operations. Experienced in infrastructure monitoring, platform reliability, and integrating AI-driven tools and LLMs to accelerate technical workflows. Strong focus on efficiency, leveraging scripting (PowerShell, Python) and containerization to automate repetitive tasks and optimize systems.",
+    "linkedin": "https://www.linkedin.com/in/constantin-marcus-strel%C5%A3ov-82295022a/"
+  },
+  "experience": [
+    {
+      "role": "NOC Engineer",
+      "badge": "Present",
+      "company": "Ness Romania SRL | Remote — 18/04/2025 – Present",
+      "description": "Monitored and resolved service alarms using BMC Helix, SignalFX, LogicMonitor, Grafana, Empirix and Ribbon Analytics. Managed major incidents and escalations, streamlined ticketing via ServiceNow and xMatters, and reduced MTTR. Actively using Atlassian Rovo and internal AI search tools to accelerate root-cause analysis and maintain SOPs."
+    },
+    {
+      "role": "IT System Administrator",
+      "badge": "Hybrid",
+      "company": "Ingleby Farms & Forests | Timișoara — 13/11/2024 – 27/04/2025",
+      "description": "Administered Windows Server 2016/2019/2022 in mixed virtual/physical Hyper-V environments. PowerShell scripting for server management. Wrote SQL queries in Lansweeper for infrastructure BI reports. Managed Bitdefender GravityZone protecting 200+ endpoints."
+    },
+    {
+      "role": "System Administrator",
+      "badge": "",
+      "company": "Atos GDC SRL | Remote — 21/09/2021 – 12/11/2024",
+      "description": "Administered Windows Server 2000–2019 and VMware vSphere 6.x/7 / Hyper-V, ESX host management. SPOC for patch management with BMC TrueSight. Provided 24/7 on-call emergency support and managed incidents/changes in ServiceNow."
+    }
+  ],
+  "skillsCloud": [
+    { "icon": "fab fa-windows", "name": "Windows Server", "status": "ACTIVE", "color": "green" },
+    { "icon": "fas fa-server", "name": "VMware vSphere", "status": "ACTIVE", "color": "green" },
+    { "icon": "fas fa-network-wired", "name": "ESXi / Hyper-V", "status": "ACTIVE", "color": "green" },
+    { "icon": "fab fa-microsoft", "name": "Azure Fundamentals", "status": "LEARNED", "color": "cyan" }
+  ],
+  "skillsScripting": [
+    { "icon": "fas fa-terminal", "name": "PowerShell", "status": "ADVANCED", "color": "green" },
+    { "icon": "fab fa-python", "name": "Python", "status": "BASIC", "color": "yellow" },
+    { "icon": "fab fa-docker", "name": "Docker", "status": "BASIC", "color": "yellow" },
+    { "icon": "fas fa-robot", "name": "Claude / Gemini / Rovo", "status": "DAILY DRIVER", "color": "cyan" }
+  ],
+  "projects": [
+    {
+      "name": "RNVI - Real Estate Registry",
+      "status": "In Progress",
+      "statusStyle": "outline",
+      "tags": "[FastAPI] [React] [PostgreSQL]",
+      "description": "Full-stack real estate transaction registry with zone-based property valuation and municipality tax calibration, built for EU regulatory compliance.",
+      "source": "#"
+    },
+    {
+      "name": "osint-bot-detector",
+      "status": "In Progress",
+      "statusStyle": "outline",
+      "tags": "[Python] [Twitter API v2] [NLP]",
+      "description": "Modular CLI tool for detecting bot and coordinated propaganda troll accounts using behavioral, provenance and network analysis.",
+      "source": "#"
+    },
+    {
+      "name": "ai-log-diagnostic",
+      "status": "In Progress",
+      "statusStyle": "outline",
+      "tags": "[Python] [LLM] [Automation]",
+      "description": "An automated pipeline that monitors system logs using Python and triggers AI-driven diagnostic summaries.",
+      "source": "#"
+    },
+    {
+      "name": "home-server-docker",
+      "status": "Production Ready",
+      "statusStyle": "solid",
+      "tags": "[Docker] [Ubuntu] [Networking]",
+      "description": "Containerized media and monitoring environment utilizing Docker Compose on Ubuntu 24.04 LTS.",
+      "source": "#"
+    }
+  ],
+  "contact": {
+    "email": "marcus.streltov14@gmail.com",
+    "phone": "+40 733642625",
+    "location": "Timisoara, Romania"
+  }
+}
