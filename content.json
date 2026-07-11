@@ -10,7 +10,7 @@
   "experience": [
     {
       "role": "NOC Engineer",
-      "badge": "Present",
+      "badge": "Remote",
       "company": "Ness Romania SRL | Remote — 18/04/2025 – Present",
       "description": "Monitored and resolved service alarms using BMC Helix, SignalFX, LogicMonitor, Grafana, Empirix and Ribbon Analytics. Managed major incidents and escalations, streamlined ticketing via ServiceNow and xMatters, and reduced MTTR. Actively using Atlassian Rovo and internal AI search tools to accelerate root-cause analysis and maintain SOPs."
     },
@@ -22,7 +22,7 @@
     },
     {
       "role": "System Administrator",
-      "badge": "",
+      "badge": "Remote",
       "company": "Atos GDC SRL | Remote — 21/09/2021 – 12/11/2024",
       "description": "Administered Windows Server 2000–2019 and VMware vSphere 6.x/7 / Hyper-V, ESX host management. SPOC for patch management with BMC TrueSight. Provided 24/7 on-call emergency support and managed incidents/changes in ServiceNow."
     }
@@ -41,12 +41,12 @@
   ],
   "projects": [
     {
-      "name": "ai-log-diagnostic",
-      "status": "In Progress",
-      "statusStyle": "outline",
-      "tags": "[Python] [LLM] [Automation]",
-      "description": "An automated pipeline that monitors system logs using Python and triggers AI-driven diagnostic summaries.",
-      "source": "#"
+  "name": "stremio-docker-server",
+  "status": "Production Ready",
+  "statusStyle": "solid",
+  "tags": "[Docker] [Stremio] [Media-Streaming] [Self-Hosted]",
+  "description": "Containerized Stremio streaming server deployed via Docker, optimized for local network media playback and central add-on management.",
+  "source": "#"
     },
     {
       "name": "home-server-docker",
