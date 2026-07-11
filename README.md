@@ -1,55 +1,57 @@
-# Portofoliu static — editezi content.json, dai push, gata
+# Constantin-Marcus Strelțov — Personal Portfolio
 
-## Structura
-```
-portfolio-static/
-├── index.html      → site-ul (design, layout, terminal — nu-l atingi de obicei)
-└── content.json     → tot ce ține de CV-ul tău: nume, bio, experiență, proiecte, contact
-```
+A single-page personal portfolio and CV, built as a static site with a terminal-inspired
+bento grid design. Live overview of my background, experience, and current projects.
 
-Când vrei să schimbi ceva pe site — un job nou, un proiect nou, alt telefon — deschizi
-**doar** `content.json`, editezi textul, salvezi. Nu atingi HTML-ul deloc.
+**Live site:** _(add your GitHub Pages / custom domain link here once published)_
 
-## Testare locală
-Fetch-ul de JSON nu merge dacă deschizi `index.html` direct din Finder/Explorer (restricție
-de browser pentru fișiere locale). Rulezi un mini-server, o singură comandă:
+## About me
+
+System Administrator and NOC Engineer with 4+ years of experience across critical
+infrastructure monitoring, virtualization, and Windows Server administration. Currently
+transitioning toward DevOps, cloud automation, and AI-assisted infrastructure tooling.
+
+- **Current role:** NOC Engineer @ Ness Romania SRL (Remote)
+- **Core stack:** Windows Server, VMware vSphere/ESXi, Hyper-V, PowerShell, Grafana,
+  LogicMonitor, ServiceNow, Bitdefender GravityZone
+- **Actively learning:** Docker, Python, Azure, infrastructure automation
+- **Location:** Timișoara, Romania
+
+## About this project
+
+The site is intentionally built without a heavy framework — plain HTML, Tailwind (CDN),
+and vanilla JS — to keep it fast, dependency-free, and easy to run anywhere.
+
+**Stack:**
+- Static frontend (`index.html`) rendering content dynamically from `content.json`
+- Containerized with Docker/Docker Compose for consistent local hosting
+- Deployable as a static site (GitHub Pages, Netlify, Vercel) or via any Docker host
+
+**Structure:**
+## Running locally
 
 ```bash
-cd portfolio-static
+docker compose up -d --build
+```
+Site available at `http://localhost:8080`.
+
+Or without Docker, any static server works:
+```bash
 python3 -m http.server 8000
 ```
-Apoi deschizi `http://localhost:8000` în browser.
 
-(Dacă nu ai Python, `npx serve` face același lucru.)
+## Projects featured on the site
 
-## Publicare — GitHub Pages (gratuit, recomandat)
-1. Creezi un repo nou pe GitHub, ex: `portfolio`.
-2. Urci cele 2 fișiere (`index.html`, `content.json`) în el.
-3. Settings → Pages → Source: `main` branch, folder `/ (root)` → Save.
-4. În ~1 minut ai site-ul live la `https://username.github.io/portfolio`.
+- **RNVI** — Full-stack real estate transaction registry (FastAPI, React, PostgreSQL)
+  built with EU regulatory compliance in mind (GDPR, AMLD6, INSPIRE).
+- **OSINT Bot Detector** — Modular Python CLI tool for detecting bot and coordinated
+  propaganda accounts using behavioral and network analysis (Twitter API v2).
+- **AI Log Diagnostic** — Automated pipeline combining Python log monitoring with
+  LLM-driven diagnostic summaries.
+- **Home Server (Docker)** — Containerized media and monitoring stack on Ubuntu 24.04 LTS.
 
-## Publicare — Vercel / Netlify (alternativă, ceva mai rapidă la actualizări)
-1. Conectezi repo-ul GitHub la Vercel sau Netlify (cont gratuit).
-2. Nu ai nevoie de build command — e site static simplu, "Framework: None".
-3. Deploy automat. Primești un URL gen `portfolio.vercel.app`.
+## Contact
 
-## Legarea domeniului cumpărat
-Fie pe GitHub Pages (Settings → Pages → Custom domain), fie pe Vercel/Netlify
-(Settings → Domains), adaugi domeniul tău și configurezi DNS-ul (CNAME sau A record)
-la registrarul de unde l-ai cumpărat. Ambele platforme îți arată exact ce valori
-să pui, pas cu pas, când adaugi domeniul.
-
-## Fluxul zilnic de editare
-```bash
-# editezi content.json cu orice editor de text
-git add content.json
-git commit -m "Adaug proiect nou"
-git push
-```
-GitHub Pages/Vercel/Netlify republică automat în 30 secunde – 2 minute. Fără server,
-fără parolă de admin, fără cost lunar.
-
-## Dacă totuși vrei editare "din telefon, fără laptop"
-Poți edita `content.json` direct din interfața web GitHub (click pe fișier → creion
-"Edit" → Commit changes) — merge din browser de pe telefon, fără git instalat local.
-E cel mai apropiat de "editare live" fără să întreții tu un backend.
+- **Email:** marcus.streltov14@gmail.com
+- **Phone:** +40 733 642 625
+- **LinkedIn:** [linkedin.com/in/constantin-marcus-strelțov](https://www.linkedin.com/in/constantin-marcus-strel%C5%A3ov-82295022a/)
