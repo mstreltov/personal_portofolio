@@ -3,7 +3,7 @@
 A single-page personal portfolio and CV, built as a static site with a terminal-inspired
 bento grid design. Live overview of my background, experience, and current projects.
 
-**Live site:** _(add your GitHub Pages / custom domain link here once published)_
+**Live site:** `https://mstreltov.github.io/personal_portofolio/`
 
 ## About me
 
@@ -26,11 +26,6 @@ and vanilla JS — to keep it fast, dependency-free, and easy to run anywhere.
 - Static frontend (`index.html`) rendering content dynamically from `content.json`
 - Containerized with Docker/Docker Compose for consistent local hosting
 - Deployable as a static site (GitHub Pages, Netlify, Vercel) or via any Docker host
-
-## Running
-
-Site available at `https://mstreltov.github.io/personal_portofolio/`.
-
 
 ## Projects featured on the site
 
